@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    var singletone = ViewBag.Singleton as ISingletonOperation;
+    var transient = ViewBag.Transient as ITransientOperation;
+    var scoped = ViewBag.Scoped as IScopedOperation;
+    var service = ViewBag.Service as OperationService;
+}
+
+<div>
+   <p>Scoped:@scoped.OperationId</p>
+   <p>Transient:@transient.OperationId</p>
+   <p>Singleton:@singletone.OperationId</p>
+</div>
+
+<p>From Service:</p>
+<div>
+   <p>Scoped:@service.ScopedOperation.OperationId</p>
+   <p>Transient:@service.TransientOperation.OperationId</p>
+   <p>Singleton:@service.SingletonOperation.OperationId</p>
+</div>
